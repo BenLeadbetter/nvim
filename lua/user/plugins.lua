@@ -31,8 +31,13 @@ end
 -- plugins
 return packer.startup(function(use)
   use "wbthomason/packer.nvim"
+
+  -- core functionality
   use "nvim-lua/plenary.nvim"
   use "nvim-lua/popup.nvim"
+
+  -- colorschemes
+  use { "bluz71/vim-nightfly-colors", as = "nightfly" }
 
   -- crates
   use {

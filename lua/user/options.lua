@@ -31,5 +31,3 @@ vopt.undofile = true
 vopt.updatetime = 300
 vopt.wrap = false
 vopt.writebackup = false
-
-vim.cmd(":highlight SignColumn guibg=clear")

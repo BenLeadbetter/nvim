@@ -2,7 +2,7 @@ local servers = {
 	"clangd",
 	"lua_ls",
 	"pyright",
-	-- "rust-analyzer",
+	"rust_analyzer",
 }
 
 local settings = {
