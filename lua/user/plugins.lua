@@ -34,9 +34,20 @@ return packer.startup(function(use)
   use "nvim-lua/plenary.nvim"
   use "nvim-lua/popup.nvim"
 
+  -- crates
+  use {
+    'saecki/crates.nvim',
+    tag = 'v0.3.0',
+    requires = { 'nvim-lua/plenary.nvim' },
+    config = function()
+        require('crates').setup()
+    end,
+  }
+
   -- completions
   use "hrsh7th/cmp-buffer"
   use "hrsh7th/cmp-cmdline"
+  use "hrsh7th/cmp-nvim-lsp"
   use "hrsh7th/cmp-path"
   use "hrsh7th/nvim-cmp"
   use "saadparwaiz1/cmp_luasnip"
@@ -44,7 +55,12 @@ return packer.startup(function(use)
 
   -- snippets
   use "L3MON4D3/LuaSnip"
-  use "rafamadriz/friendly-snippets"
+  use "rafamadriz/friendly-snippets" -- todo roll some cpp snippets
+
+  -- lsp
+  use "neovim/nvim-lspconfig"
+  use "williamboman/mason.nvim"
+  use "williamboman/mason-lspconfig.nvim"
 
   -- automatically set up your configuration after cloning packer.nvim
   -- leave at the end of the list

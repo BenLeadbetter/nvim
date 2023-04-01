@@ -22,12 +22,14 @@ vopt.smartindent = true
 vopt.spelllang = "en_gb"
 vopt.splitbelow = true
 vopt.splitright = true
+vopt.signcolumn = "yes"
 vopt.swapfile = false
 vopt.tabstop = 4
 vopt.termguicolors = true
 vopt.timeoutlen = 1000
 vopt.undofile = true
 vopt.updatetime = 300
-vopt.wildmode = longest,list
 vopt.wrap = false
 vopt.writebackup = false
+
+vim.cmd(":highlight SignColumn guibg=clear")
