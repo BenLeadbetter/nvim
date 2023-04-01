@@ -1,0 +1,7 @@
+require "user.cmp"
+require "user.colorscheme"
+require "user.keymaps"
+require "user.options"
+require "user.plugins"
+require "user.spelling"
+require "user.tabnine"
