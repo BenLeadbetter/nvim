@@ -39,10 +39,31 @@ for _, server in pairs(servers) do
 
 	server = vim.split(server, "@")[1]
 
-	local require_ok, conf_opts = pcall(require, "user.lsp.server_settings." .. server)
-	if require_ok then
-		opts = vim.tbl_deep_extend("force", conf_opts, opts)
+	local has_global_opts, global_opts = pcall(require, "user.lsp.server_settings." .. server)
+	if has_global_opts then
+		opts = vim.tbl_deep_extend("force", global_opts, opts)
 	end
+
+	local has_local_opts, local_opts = pcall(require, "local.lsp.server_settings." .. server)
+	if has_local_opts then
+		opts = vim.tbl_deep_extend("force", local_opts, opts)
+	end
+
+    --[[
+    
+    print(string.format("** %s **", server))
+
+    local function print_ops(o, indent)
+        for key, opt in pairs(o) do
+            print(string.rep(" ", indent) .. string.format("key:%s val:%s", key, opt))
+            if type(opt) == "table" then
+                print_ops(opt, indent + 1)
+            end
+        end
+    end
+    print_ops(opts, 0)
+
+    ]]--
 
 	lspconfig[server].setup(opts)
 end
