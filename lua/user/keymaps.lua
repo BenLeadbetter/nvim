@@ -19,3 +19,6 @@ keymap("n", "<leader>e", ":Lex 30<cr>", opts)
 -- buffers
 keymap("n", "<S-h>", ":bnext<cr>", opts)
 keymap("n", "<S-l>", ":bprev<cr>", opts)
+
+keymap("n", "<leader>f", "<cmd>Telescope find_files theme=dropdown<cr>", opts)
+keymap("n", "<leader>rg", "<cmd>Telescope live_grep<cr>", opts)
