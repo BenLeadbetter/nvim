@@ -70,6 +70,16 @@ return packer.startup(function(use)
   --telescope
   use { "nvim-telescope/telescope.nvim", tag = '0.1.1', requires = { {"nvim-lua/plenary.nvim"} } }
 
+  --treesitter
+  use {
+    'nvim-treesitter/nvim-treesitter',
+    run = function()
+        local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
+        ts_update()
+    end,
+  }
+  use "p00f/nvim-ts-rainbow"
+
   -- automatically set up your configuration after cloning packer.nvim
   -- leave at the end of the list
   if PACKER_BOOTSTRAP then
