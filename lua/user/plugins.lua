@@ -79,6 +79,10 @@ return packer.startup(function(use)
     end,
   }
   use "p00f/nvim-ts-rainbow"
+  use "windwp/nvim-autopairs"
+
+  -- comments
+  use "numToStr/Comment.nvim"
 
   -- automatically set up your configuration after cloning packer.nvim
   -- leave at the end of the list
