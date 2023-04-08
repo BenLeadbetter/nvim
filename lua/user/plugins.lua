@@ -89,6 +89,9 @@ return packer.startup(function(use)
     -- comments
     use "numToStr/Comment.nvim"
 
+    -- git
+    use "lewis6991/gitsigns.nvim"
+
     -- automatically set up your configuration after cloning packer.nvim
     -- leave at the end of the list
     if PACKER_BOOTSTRAP then require("packer").sync() end
