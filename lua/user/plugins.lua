@@ -83,6 +83,9 @@ return packer.startup(function(use)
     use "p00f/nvim-ts-rainbow"
     use "windwp/nvim-autopairs"
 
+    -- syntax highlighting
+    use "peterhoeg/vim-qml"
+
     -- comments
     use "numToStr/Comment.nvim"
 
