@@ -1,7 +1,5 @@
 local status_ok, comment = pcall(require, "Comment")
-if not status_ok then
-  return
-end
+if not status_ok then return end
 
 comment.setup {
     ---Add a space b/w comment and the line
@@ -15,14 +13,14 @@ comment.setup {
         ---Line-comment toggle keymap
         line = 'gcc',
         ---Block-comment toggle keymap
-        block = 'gbc',
+        block = 'gbc'
     },
     ---LHS of operator-pending mappings in NORMAL and VISUAL mode
     opleader = {
         ---Line-comment keymap
         line = 'gc',
         ---Block-comment keymap
-        block = 'gb',
+        block = 'gb'
     },
     ---LHS of extra mappings
     extra = {
@@ -31,7 +29,7 @@ comment.setup {
         ---Add comment on the line below
         below = 'gco',
         ---Add comment at the end of line
-        eol = 'gcA',
+        eol = 'gcA'
     },
     ---Enable keybindings
     ---NOTE: If given `false` then the plugin won't create any mappings
@@ -39,10 +37,10 @@ comment.setup {
         ---Operator-pending mapping; `gcc` `gbc` `gc[count]{motion}` `gb[count]{motion}`
         basic = true,
         ---Extra mapping; `gco`, `gcO`, `gcA`
-        extra = true,
+        extra = true
     },
     ---Function to call before (un)comment
     pre_hook = nil,
     ---Function to call after (un)comment
-    post_hook = nil,
+    post_hook = nil
 }

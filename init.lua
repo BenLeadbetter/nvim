@@ -1,6 +1,4 @@
-if vim.g.vscode then
-    return
-end
+if vim.g.vscode then return end
 
 require "user.options"
 require "user.colorscheme"
