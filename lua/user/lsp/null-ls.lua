@@ -4,12 +4,15 @@ if not null_ls_status_ok then
 end
 
 local formatting = null_ls.builtins.formatting
-local diagnostics = null_ls.builtins.diagnostics
+-- local diagnostics = null_ls.builtins.diagnostics
 
 null_ls.setup({
 	debug = false,
 	sources = {
-		formatting.stylua,
+        -- diagnostics.qmllint,
 		formatting.clang_format,
+		formatting.cmake_format,
+		formatting.qmlformat,
+		formatting.stylua,
 	},
 })
