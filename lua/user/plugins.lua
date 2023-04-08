@@ -29,16 +29,17 @@ return packer.startup(function(use)
     -- core functionality
     use "nvim-lua/plenary.nvim"
     use "nvim-lua/popup.nvim"
+    use "kyazdani42/nvim-web-devicons"
 
     -- colorschemes
     use {"bluz71/vim-nightfly-colors", as = "nightfly"}
 
     -- crates
     use {
-        'saecki/crates.nvim',
-        tag = 'v0.3.0',
-        requires = {'nvim-lua/plenary.nvim'},
-        config = function() require('crates').setup() end
+        "saecki/crates.nvim",
+        tag = "v0.3.0",
+        requires = {"nvim-lua/plenary.nvim"},
+        config = function() require("crates").setup() end
     }
 
     -- completions
@@ -49,9 +50,9 @@ return packer.startup(function(use)
     use "hrsh7th/nvim-cmp"
     use "saadparwaiz1/cmp_luasnip"
     use {
-        'tzachar/cmp-tabnine',
-        run = './install.sh',
-        requires = 'hrsh7th/nvim-cmp'
+        "tzachar/cmp-tabnine",
+        run = "./install.sh",
+        requires = "hrsh7th/nvim-cmp"
     }
 
     -- snippets
@@ -91,6 +92,9 @@ return packer.startup(function(use)
 
     -- git
     use "lewis6991/gitsigns.nvim"
+
+    -- nvim tree
+    use "kyazdani42/nvim-tree.lua"
 
     -- automatically set up your configuration after cloning packer.nvim
     -- leave at the end of the list
