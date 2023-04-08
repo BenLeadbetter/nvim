@@ -2,7 +2,7 @@ local vopt = vim.opt
 
 vopt.clipboard = "unnamedplus"
 vopt.cmdheight = 2
-vopt.completeopt = {"menuone", "noselect"}
+vopt.completeopt = { "menuone", "noselect" }
 vopt.conceallevel = 0
 vopt.expandtab = true
 vopt.fileencoding = "utf-8"

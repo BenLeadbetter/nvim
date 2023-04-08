@@ -1,4 +1,4 @@
-local opts = {noremap = true, silent = true}
+local opts = { noremap = true, silent = true }
 local keymap = vim.api.nvim_set_keymap
 
 -- remap space as leader key
@@ -21,3 +21,18 @@ keymap("n", "<S-l>", ":bprev<cr>", opts)
 
 keymap("n", "<leader>f", "<cmd>Telescope find_files theme=dropdown<cr>", opts)
 keymap("n", "<leader>rg", "<cmd>Telescope live_grep<cr>", opts)
+
+-- formatting
+RangeFormat = function()
+	local start_row, _ = vim.api.nvim_buf_get_mark(0, "<")
+	local end_row, _ = vim.api.nvim_buf_get_mark(0, ">")
+	vim.lsp.buf.format({
+		range = {
+			["start"] = { start_row, 0 },
+			["end"] = { end_row, 0 },
+		},
+		async = true,
+	})
+end
+vim.keymap.set("v", "<leader>f", RangeFormat)
+keymap("n", "<leader>F", ":lua vim.lsp.buf.format()<CR>", opts)
