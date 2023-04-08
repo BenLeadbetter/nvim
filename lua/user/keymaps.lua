@@ -32,7 +32,8 @@ RangeFormat = function()
 			["end"] = { end_row, 0 },
 		},
 		async = true,
+		normal = true,
 	})
 end
-vim.keymap.set("v", "<leader>f", RangeFormat)
+vim.keymap.set("v", "<leader>F", RangeFormat)
 keymap("n", "<leader>F", ":lua vim.lsp.buf.format()<CR>", opts)
