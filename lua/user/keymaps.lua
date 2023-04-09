@@ -23,7 +23,7 @@ keymap("n", "<leader>f", "<cmd>Telescope find_files theme=dropdown<cr>", opts)
 keymap("n", "<leader>rg", "<cmd>Telescope live_grep<cr>", opts)
 
 -- formatting
-RangeFormat = function()
+local range_format = function()
 	local start_row, _ = vim.api.nvim_buf_get_mark(0, "<")
 	local end_row, _ = vim.api.nvim_buf_get_mark(0, ">")
 	vim.lsp.buf.format({
@@ -35,5 +35,11 @@ RangeFormat = function()
 		normal = true,
 	})
 end
-vim.keymap.set("v", "<leader>F", RangeFormat)
+vim.keymap.set("v", "<leader>F", range_format)
 keymap("n", "<leader>F", ":lua vim.lsp.buf.format()<CR>", opts)
+
+
+if pcall(require, "dap") then
+    keymap("n", "<leader>dbb", ":lua require'dap'.toggle_breakpoint()<CR>", opts)
+end
+

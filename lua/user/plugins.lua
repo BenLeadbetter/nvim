@@ -119,6 +119,10 @@ return packer.startup(function(use)
 		},
 	})
 
+	-- debugging
+	use("mfussenegger/nvim-dap")
+    use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } }
+
 	-- automatically set up your configuration after cloning packer.nvim
 	-- leave at the end of the list
 	if PACKER_BOOTSTRAP then
