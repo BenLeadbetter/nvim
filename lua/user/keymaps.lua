@@ -41,10 +41,10 @@ local range_format = function()
 	})
 end
 vim.keymap.set("v", "<leader>F", range_format)
-keymap("n", "<leader>F", ":lua vim.lsp.buf.format()<CR>", opts)
+keymap("n", "<leader>F", ":lua vim.lsp.buf.format()<cr>", opts)
 
 
 if pcall(require, "dap") then
-    keymap("n", "<leader>dbb", ":lua require'dap'.toggle_breakpoint()<CR>", opts)
+    keymap("n", "<leader>dbb", ":lua require'dap'.toggle_breakpoint()<cr>", opts)
 end
 
