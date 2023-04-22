@@ -23,6 +23,10 @@ keymap("n", "<S-l>", ":bprev<cr>", opts)
 keymap("n", "<leader>f", "<cmd>Telescope find_files no_ignore=true theme=dropdown<cr>", opts)
 keymap("n", "<leader>rg", "<cmd>Telescope live_grep<cr>", opts)
 
+-- close buffers
+keymap("n", "<leader>qab", ":bufdo bw<cr>", opts)
+keymap("n", "<leader>qa!", ":bufdo bw!<cr>", opts)
+
 -- formatting
 local range_format = function()
 	local start_row, _ = vim.api.nvim_buf_get_mark(0, "<")
