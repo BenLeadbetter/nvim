@@ -105,6 +105,20 @@ return packer.startup(function(use)
 	-- nvim tree
 	use("kyazdani42/nvim-tree.lua")
 
+	-- noice
+    -- use nightly for this?
+	use({
+		"folke/noice.nvim",
+		requires = {
+			-- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+			"MunifTanjim/nui.nvim",
+			-- OPTIONAL:
+			--   `nvim-notify` is only needed, if you want to use the notification view.
+			--   If not available, we use `mini` as the fallback
+			-- "rcarriga/nvim-notify"],
+		},
+	})
+
 	-- debugging
 	use("mfussenegger/nvim-dap")
     use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } }
