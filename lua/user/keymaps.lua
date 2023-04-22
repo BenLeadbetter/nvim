@@ -44,7 +44,13 @@ vim.keymap.set("v", "<leader>F", range_format)
 keymap("n", "<leader>F", ":lua vim.lsp.buf.format()<cr>", opts)
 
 
+-- debugging
 if pcall(require, "dap") then
     keymap("n", "<leader>dbb", ":lua require'dap'.toggle_breakpoint()<cr>", opts)
 end
 
+-- ai
+if pcall(require, "chatgpt") then
+    vim.keymap.set("v", "<leader>ai", function() require("chatgpt").edit_with_instructions() end)
+    keymap("n", "<leader>ai", ":ChatGPT<cr>", opts)
+end
