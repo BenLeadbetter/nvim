@@ -19,7 +19,8 @@ keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
 keymap("n", "<S-h>", ":bnext<cr>", opts)
 keymap("n", "<S-l>", ":bprev<cr>", opts)
 
-keymap("n", "<leader>f", "<cmd>Telescope find_files theme=dropdown<cr>", opts)
+-- telescope
+keymap("n", "<leader>f", "<cmd>Telescope find_files no_ignore=true theme=dropdown<cr>", opts)
 keymap("n", "<leader>rg", "<cmd>Telescope live_grep<cr>", opts)
 
 -- formatting
