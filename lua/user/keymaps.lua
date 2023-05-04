@@ -23,9 +23,10 @@ keymap("n", "<S-l>", ":bprev<cr>", opts)
 keymap("n", "<leader>f", "<cmd>Telescope find_files no_ignore=true theme=dropdown<cr>", opts)
 keymap("n", "<leader>rg", "<cmd>Telescope live_grep<cr>", opts)
 
--- close buffers
+-- buffers
 keymap("n", "<leader>qab", ":bufdo bw<cr>", opts)
 keymap("n", "<leader>qa!", ":bufdo bw!<cr>", opts)
+keymap("n", "<leader>wa", ":bufdo w<cr>", opts)
 
 -- formatting
 local range_format = function()
@@ -43,11 +44,99 @@ end
 vim.keymap.set("v", "<leader>F", range_format)
 keymap("n", "<leader>F", ":lua vim.lsp.buf.format()<cr>", opts)
 
+local function with_dap(f)
+    return function()
+        local has_dap, dap = pcall(require, "dap")
+        if has_dap then
+            f(dap)
+        end
+    end
+end
 
 -- debugging
-if pcall(require, "dap") then
-    keymap("n", "<leader>dbb", ":lua require'dap'.toggle_breakpoint()<cr>", opts)
-end
+vim.keymap.set(
+	"n",
+	"<F5>",
+	with_dap(function(dap)
+		dap.continue()
+	end)
+)
+vim.keymap.set(
+	"n",
+	"<F10>",
+	with_dap(function(dap)
+		dap.step_over()
+	end)
+)
+vim.keymap.set(
+	"n",
+	"<F11>",
+	with_dap(function(dap)
+		dap.step_into()
+	end)
+)
+vim.keymap.set(
+	"n",
+	"<F12>",
+	with_dap(function(dap)
+		dap.step_out()
+	end)
+)
+vim.keymap.set(
+	"n",
+	"<Leader>db",
+	with_dap(function(dap)
+		dap.toggle_breakpoint()
+	end)
+)
+vim.keymap.set(
+	"n",
+	"<Leader>dB",
+	with_dap(function(dap)
+		dap.set_breakpoint()
+	end)
+)
+vim.keymap.set(
+	"n",
+	"<Leader>dlp",
+	with_dap(function(dap)
+		dap.set_breakpoint(nil, nil, vim.fn.input("Log point message: "))
+	end)
+)
+vim.keymap.set(
+	"n",
+	"<Leader>dr",
+	with_dap(function(dap)
+		dap.repl.open()
+	end)
+)
+vim.keymap.set(
+	"n",
+	"<Leader>dl",
+	with_dap(function(dap)
+		dap.run_last()
+	end)
+)
+vim.keymap.set(
+	{ "n", "v" },
+	"<Leader>dh",
+	with_dap(function(dap)
+		dap.ui.widgets.hover()
+	end)
+)
+vim.keymap.set(
+	{ "n", "v" },
+	"<Leader>dp",
+	with_dap(function(dap)
+		dap.ui.widgets.preview()
+	end)
+)
+vim.keymap.set("n", "<Leader>dg", function()
+	local has_dapui, dapui = pcall(require, "dapui")
+	if has_dapui then
+		dapui.toggle()
+	end
+end)
 
 -- ai
 if pcall(require, "chatgpt") then
