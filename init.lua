@@ -19,4 +19,4 @@ require("user.gitsigns")
 require("user.nvimtree")
 require("user.notify")
 require("user.noice")
-require("user.chatgpt")
+-- require("user.chatgpt") -- fixme
