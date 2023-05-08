@@ -6,7 +6,11 @@ keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
--- Resize with arrows
+-- custom window bindings
+keymap("n", "<C-h>", "<C-w>h", opts)
+keymap("n", "<C-j>", "<C-w>j", opts)
+keymap("n", "<C-k>", "<C-w>k", opts)
+keymap("n", "<C-l>", "<C-w>l", opts)
 keymap("n", "<S-Up>", ":resize +2<CR>", opts)
 keymap("n", "<S-Down>", ":resize -2<CR>", opts)
 keymap("n", "<S-Left>", ":vertical resize -2<CR>", opts)
@@ -16,17 +20,16 @@ keymap("n", "<S-Right>", ":vertical resize +2<CR>", opts)
 keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
 
 -- buffers
-keymap("n", "<S-h>", ":bnext<cr>", opts)
-keymap("n", "<S-l>", ":bprev<cr>", opts)
+keymap("n", "]b", ":bnext<cr>", opts)
+keymap("n", "[b", ":bprev<cr>", opts)
+keymap("n", "]B", ":blast<cr>", opts)
+keymap("n", "[B", ":bfirst<cr>", opts)
+keymap("n", "<leader>qab", ":bufdo bw<cr>", opts)
+keymap("n", "<leader>qa!", ":bufdo bw!<cr>", opts)
 
 -- telescope
 keymap("n", "<leader>f", "<cmd>Telescope find_files no_ignore=true theme=dropdown<cr>", opts)
 keymap("n", "<leader>rg", "<cmd>Telescope live_grep<cr>", opts)
-
--- buffers
-keymap("n", "<leader>qab", ":bufdo bw<cr>", opts)
-keymap("n", "<leader>qa!", ":bufdo bw!<cr>", opts)
-keymap("n", "<leader>wa", ":bufdo w<cr>", opts)
 
 -- formatting
 local range_format = function()
