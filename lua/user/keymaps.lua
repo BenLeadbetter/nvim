@@ -66,21 +66,21 @@ vim.keymap.set(
 )
 vim.keymap.set(
 	"n",
-	"<F10>",
+	"<leader>do",
 	with_dap(function(dap)
 		dap.step_over()
 	end)
 )
 vim.keymap.set(
 	"n",
-	"<F11>",
+	"<leader>di",
 	with_dap(function(dap)
 		dap.step_into()
 	end)
 )
 vim.keymap.set(
 	"n",
-	"<F12>",
+	"<leader>dO",
 	with_dap(function(dap)
 		dap.step_out()
 	end)
