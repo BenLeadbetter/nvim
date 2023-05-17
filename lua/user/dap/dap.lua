@@ -39,7 +39,7 @@ dap.configurations.cpp = {
 		type = "codelldb",
 		request = "launch",
 		program = function()
-			return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+			return require("user.dap.debug_target").debug_target()
 		end,
 		cwd = "${workspaceFolder}",
 		stopOnEntry = false,
@@ -51,7 +51,7 @@ dap.configurations.cpp = {
 		type = "codelldb",
 		request = "attach",
 		program = function()
-			return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+			return require("user.dap.debug_target").debug_target()
 		end,
 		waitFor = true, -- only supported on macos
         initCommands = init_commands,
