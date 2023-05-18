@@ -47,13 +47,21 @@ end
 vim.keymap.set("v", "<leader>F", range_format)
 keymap("n", "<leader>F", ":lua vim.lsp.buf.format()<cr>", opts)
 
-local function with_dap(f)
+local function with_module(module_name ,f)
     return function()
-        local has_dap, dap = pcall(require, "dap")
-        if has_dap then
-            f(dap)
+        local has_module, module = pcall(require, module_name)
+        if has_module then
+            f(module)
         end
     end
+end
+
+local function with_dap(f)
+    return with_module("dap", f)
+end
+
+local function with_persisten_breakpoints(f)
+    return with_module("persistent-breakpoints.api", f)
 end
 
 -- debugging
@@ -88,8 +96,8 @@ vim.keymap.set(
 vim.keymap.set(
 	"n",
 	"<Leader>db",
-	with_dap(function(dap)
-		dap.toggle_breakpoint()
+	with_persisten_breakpoints(function(mod)
+		mod.toggle_breakpoint()
 	end)
 )
 vim.keymap.set(
