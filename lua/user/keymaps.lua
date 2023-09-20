@@ -20,6 +20,10 @@ keymap("n", "<S-Right>", ":vertical resize +2<CR>", opts)
 keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
 
 -- buffers
+keymap("n", "]a", ":next<cr>", opts)
+keymap("n", "[a", ":prev<cr>", opts)
+keymap("n", "]A", ":first<cr>", opts)
+keymap("n", "[A", ":last<cr>", opts)
 keymap("n", "]b", ":bnext<cr>", opts)
 keymap("n", "[b", ":bprev<cr>", opts)
 keymap("n", "]B", ":blast<cr>", opts)
