@@ -5,7 +5,7 @@ end
 
 notify.setup({
     max_width = 80,
-    render = "default", -- compact not available yet?
+    render = "compact",
     stages = "static",
     top_down = false,
 })
