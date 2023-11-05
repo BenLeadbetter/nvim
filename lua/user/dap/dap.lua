@@ -21,13 +21,10 @@ local init_commands = {
     -- run the following to find the build path prefix
     -- > strings NIBuild/3rdparty/Qt/Qt-xxx/lib/libQt6Core.a | grep -E "(jenkins|bamboo)"
     "settings append target.source-map /Volumes/build/bamboo-build/THIRDP-QT98-BAMN/sources /Users/ben.leadbetter/code/NIBuild/qt",
+    "settings append target.source-map /Volumes/build/jenkins-build/4a9427-0/sources /Users/ben.leadbetter/code/NIBuild/qt",
 }
 
 local pre_run_commands = {
-    -- custom scripting
-    -- "command script add -f ben_custom.disable_cpp_break_on_except disable_cpp_break_on_except",
-    -- "command disable_cpp_break_on_except",
-
     -- unset break on throw / catch
     -- todo: who is setting this in the first place?
     "breakpoint delete cpp_exception",
