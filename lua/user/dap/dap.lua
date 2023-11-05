@@ -54,6 +54,16 @@ dap.configurations.cpp = {
         initCommands = init_commands,
         preRunCommands = pre_run_commands,
 	},
+	{
+		name = "attach",
+		type = "codelldb",
+		request = "attach",
+		program = function()
+			return require("user.dap.debug_target").debug_target()
+		end,
+        initCommands = init_commands,
+        preRunCommands = pre_run_commands,
+	},
 }
 
 vim.fn.sign_define("DapBreakpoint", { text = "●", texthl = "red", linehl = "", numhl = "" })
