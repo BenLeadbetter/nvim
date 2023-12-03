@@ -68,6 +68,19 @@ local function with_persisten_breakpoints(f)
     return with_module("persistent-breakpoints.api", f)
 end
 
+-- text-case
+vim.keymap.set('n', 'gaU', with_module('textcase', function(tc) tc.lsp_rename('to_upper_case') end))
+vim.keymap.set('n', 'gaL', with_module('textcase', function(tc) tc.lsp_rename('to_lower_case') end))
+vim.keymap.set('n', 'gaS', with_module('textcase', function(tc) tc.lsp_rename('to_snake_case') end))
+vim.keymap.set('n', 'gaD', with_module('textcase', function(tc) tc.lsp_rename('to_dash_case') end))
+vim.keymap.set('n', 'gaN', with_module('textcase', function(tc) tc.lsp_rename('to_constant_case') end))
+vim.keymap.set('n', 'gaD', with_module('textcase', function(tc) tc.lsp_rename('to_dot_case') end))
+vim.keymap.set('n', 'gaA', with_module('textcase', function(tc) tc.lsp_rename('to_phrase_case') end))
+vim.keymap.set('n', 'gaC', with_module('textcase', function(tc) tc.lsp_rename('to_camel_case') end))
+vim.keymap.set('n', 'gaP', with_module('textcase', function(tc) tc.lsp_rename('to_pascal_case') end))
+vim.keymap.set('n', 'gaT', with_module('textcase', function(tc) tc.lsp_rename('to_title_case') end))
+vim.keymap.set('n', 'gaF', with_module('textcase', function(tc) tc.lsp_rename('to_path_case') end))
+
 -- debugging
 vim.keymap.set(
 	"n",

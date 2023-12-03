@@ -68,6 +68,12 @@ return packer.startup(function(use)
 	use("L3MON4D3/LuaSnip")
 	use("rafamadriz/friendly-snippets") -- todo roll some cpp snippets
 
+    use { "johmsalas/text-case.nvim",
+      config = function()
+        require('textcase').setup {}
+      end
+    }
+
 	-- lsp
 	use("neovim/nvim-lspconfig")
 	use("williamboman/mason.nvim")
