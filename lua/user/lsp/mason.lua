@@ -44,22 +44,15 @@ for _, server in pairs(servers) do
 		opts = vim.tbl_deep_extend("force", local_opts, opts)
 	end
 
-	--[[
-    
-    print(string.format("** %s **", server))
-
-    local function print_ops(o, indent)
-        for key, opt in pairs(o) do
-            print(string.rep(" ", indent) .. string.format("key:%s val:%s", key, opt))
-            if type(opt) == "table" then
-                print_ops(opt, indent + 1)
-            end
-        end
-    end
-    print_ops(opts, 0)
-
-    ]]
-	--
+--    local function print_ops(o, indent)
+--        for key, opt in pairs(o) do
+--            print(string.rep(" ", indent) .. string.format("key:%s val:%s", key, opt))
+--            if type(opt) == "table" then
+--                print_ops(opt, indent + 1)
+--            end
+--        end
+--    end
+--    print_ops(opts, 0)
 
 	lspconfig[server].setup(opts)
 end
