@@ -111,8 +111,8 @@ return packer.startup(function(use)
 	-- git
 	use("lewis6991/gitsigns.nvim")
 
-	-- nvim tree
-	use("kyazdani42/nvim-tree.lua")
+	-- oil
+	use("stevearc/oil.nvim")
 
 	-- noice
     -- use nightly for this?

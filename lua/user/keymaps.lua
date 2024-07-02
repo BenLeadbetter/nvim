@@ -16,8 +16,10 @@ keymap("n", "<S-Down>", ":resize -2<CR>", opts)
 keymap("n", "<S-Left>", ":vertical resize -2<CR>", opts)
 keymap("n", "<S-Right>", ":vertical resize +2<CR>", opts)
 
--- nvim tree
-keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
+-- file browser
+-- browse in root dir
+keymap("n", "<leader>e", ":edit .<cr>", opts)
+keymap("n", "<leader>E", ":edit %:h<cr>", opts)
 
 -- buffers
 keymap("n", "]a", ":next<cr>", opts)

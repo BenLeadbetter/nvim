@@ -4,6 +4,7 @@ end
 
 require("user.options")
 require("user.colorscheme")
+require("user.oil")
 require("user.keymaps")
 require("user.plugins")
 require("user.cmp")
@@ -16,7 +17,6 @@ require("user.treesitter")
 require("user.autopairs")
 require("user.comment")
 require("user.gitsigns")
-require("user.nvimtree")
 require("user.notify")
 require("user.noice")
 -- require("user.chatgpt") -- fixme
