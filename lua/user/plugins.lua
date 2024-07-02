@@ -35,7 +35,7 @@ return packer.startup(function(use)
 	-- core functionality
 	use("nvim-lua/plenary.nvim")
 	use("nvim-lua/popup.nvim")
-	use("kyazdani42/nvim-web-devicons")
+	use("nvim-tree/nvim-web-devicons")
 	use("rcarriga/nvim-notify")
 
 	-- colorschemes
