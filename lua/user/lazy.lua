@@ -35,7 +35,6 @@ return lazy.setup({
 })
 	-- -- core functionality
 	-- use("nvim-lua/popup.nvim")
-	-- use("")
 	-- use("rcarriga/nvim-notify")
 	--
 	-- -- crates
@@ -80,13 +79,6 @@ return lazy.setup({
 	-- use("williamboman/mason-lspconfig.nvim")
 	-- use("jose-elias-alvarez/null-ls.nvim")
 	--
-	-- -- telescope
-	-- use({
-	-- 	"nvim-telescope/telescope.nvim",
-	-- 	tag = "0.1.4",
-	-- 	requires = { { "nvim-lua/plenary.nvim" } },
-	-- })
-	--
 	-- -- treesitter
 	-- use({
 	-- 	"nvim-treesitter/nvim-treesitter",
@@ -103,8 +95,6 @@ return lazy.setup({
 	-- -- syntax highlighting
 	-- use("peterhoeg/vim-qml")
 	--
-	-- -- comments
-	-- use("numToStr/Comment.nvim")
 	--
 	-- -- git
 	-- use("lewis6991/gitsigns.nvim")
