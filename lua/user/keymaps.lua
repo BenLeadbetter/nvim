@@ -16,11 +16,6 @@ keymap("n", "<S-Down>", ":resize -2<CR>", opts)
 keymap("n", "<S-Left>", ":vertical resize -2<CR>", opts)
 keymap("n", "<S-Right>", ":vertical resize +2<CR>", opts)
 
--- file browser
--- browse in root dir
-keymap("n", "<leader>e", ":edit .<cr>", opts)
-keymap("n", "<leader>E", ":edit %:h<cr>", opts)
-
 -- buffers
 keymap("n", "]a", ":next<cr>", opts)
 keymap("n", "[a", ":prev<cr>", opts)
@@ -32,10 +27,6 @@ keymap("n", "]B", ":blast<cr>", opts)
 keymap("n", "[B", ":bfirst<cr>", opts)
 keymap("n", "<leader>qab", ":bufdo bw<cr>", opts)
 keymap("n", "<leader>qa!", ":bufdo bw!<cr>", opts)
-
--- telescope
-keymap("n", "<leader>f", "<cmd>Telescope find_files no_ignore=true theme=dropdown<cr>", opts)
-keymap("n", "<leader>rg", "<cmd>Telescope live_grep<cr>", opts)
 
 -- formatting
 local range_format = function()

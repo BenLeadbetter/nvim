@@ -28,9 +28,6 @@ gitsigns.setup({
 		delay = 0,
 		ignore_whitespace = false,
 	},
-	current_line_blame_formatter_opts = {
-		relative_time = false,
-	},
 	sign_priority = 6,
 	update_debounce = 100,
 	status_formatter = nil, -- Use default
