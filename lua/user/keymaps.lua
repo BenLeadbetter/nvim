@@ -39,45 +39,45 @@ keymap("n", "<leader>rg", "<cmd>Telescope live_grep<cr>", opts)
 
 -- formatting
 local range_format = function()
-    local start_row, _ = vim.api.nvim_buf_get_mark(0, "<")
-    local end_row, _ = vim.api.nvim_buf_get_mark(0, ">")
-    vim.lsp.buf.format({
-        range = {
-            ["start"] = { start_row, 0 },
-            ["end"] = { end_row, 0 },
-        },
-        async = true,
-        normal = true,
-    })
+	local start_row, _ = vim.api.nvim_buf_get_mark(0, "<")
+	local end_row, _ = vim.api.nvim_buf_get_mark(0, ">")
+	vim.lsp.buf.format({
+		range = {
+			["start"] = { start_row, 0 },
+			["end"] = { end_row, 0 },
+		},
+		async = true,
+		normal = true,
+	})
 end
 vim.keymap.set("v", "<leader>F", range_format)
 keymap("n", "<leader>F", ":lua vim.lsp.buf.format()<cr>", opts)
 
 local function with_module(module_name, f)
-    return function()
-        local has_module, module = pcall(require, module_name)
-        if has_module then
-            f(module)
-        end
-    end
+	return function()
+		local has_module, module = pcall(require, module_name)
+		if has_module then
+			f(module)
+		end
+	end
 end
 
 local function with_dap(f)
-    return with_module("dap", f)
+	return with_module("dap", f)
 end
 
 local function with_tc(f)
-    return with_module("textcase", f)
+	return with_module("textcase", f)
 end
 
 local function change_current_word(to_case)
-    return function(tc)
-        tc.current_word(to_case)
-    end
+	return function(tc)
+		tc.current_word(to_case)
+	end
 end
 
 local function with_persistent_breakpoints(f)
-    return with_module("persistent-breakpoints.api", f)
+	return with_module("persistent-breakpoints.api", f)
 end
 
 -- text-case
@@ -94,33 +94,33 @@ vim.keymap.set("n", "<leader>tct", with_tc(change_current_word("to_title_case"))
 vim.keymap.set("n", "<leader>tcf", with_tc(change_current_word("to_path_case")))
 
 local dap_commands = {
-    continue = with_dap(function(dap)
-        dap.continue()
-    end),
-    step_over = with_dap(function(dap)
-        dap.step_over()
-    end),
-    step_into = with_dap(function(dap)
-        dap.step_into()
-    end),
-    step_out = with_dap(function(dap)
-        dap.step_out()
-    end),
-    toggle_breakpoint = with_persistent_breakpoints(function(dap)
-        dap.step_out()
-    end),
-    set_log_point = with_dap(function(dap)
-        dap.set_breakpoint(nil, nil, vim.fn.input("Log point message: "))
-    end),
-    open_repl = with_dap(function(dap)
-        dap.repl.open()
-    end),
-    debug_hover = with_dap(function(dap)
-        dap.ui.widgets.hover()
-    end),
-    debug_preview = with_dap(function(dap)
-        dap.ui.widgets.preview()
-    end),
+	continue = with_dap(function(dap)
+		dap.continue()
+	end),
+	step_over = with_dap(function(dap)
+		dap.step_over()
+	end),
+	step_into = with_dap(function(dap)
+		dap.step_into()
+	end),
+	step_out = with_dap(function(dap)
+		dap.step_out()
+	end),
+	toggle_breakpoint = with_persistent_breakpoints(function(dap)
+		dap.step_out()
+	end),
+	set_log_point = with_dap(function(dap)
+		dap.set_breakpoint(nil, nil, vim.fn.input("Log point message: "))
+	end),
+	open_repl = with_dap(function(dap)
+		dap.repl.open()
+	end),
+	debug_hover = with_dap(function(dap)
+		dap.ui.widgets.hover()
+	end),
+	debug_preview = with_dap(function(dap)
+		dap.ui.widgets.preview()
+	end),
 }
 
 -- debugging
@@ -134,16 +134,16 @@ vim.keymap.set("n", "<Leader>dr", dap_commands.open_repl)
 vim.keymap.set({ "n", "v" }, "<Leader>dh", dap_commands.debug_hover)
 vim.keymap.set({ "n", "v" }, "<Leader>dp", dap_commands.debug_preview)
 vim.keymap.set("n", "<Leader>dg", function()
-    local has_dapui, dapui = pcall(require, "dapui")
-    if has_dapui then
-        dapui.toggle()
-    end
+	local has_dapui, dapui = pcall(require, "dapui")
+	if has_dapui then
+		dapui.toggle()
+	end
 end)
 
 -- ai
 if pcall(require, "chatgpt") then
-    vim.keymap.set("v", "<leader>ai", function()
-        require("chatgpt").edit_with_instructions()
-    end)
-    keymap("n", "<leader>ai", ":ChatGPT<cr>", opts)
+	vim.keymap.set("v", "<leader>ai", function()
+		require("chatgpt").edit_with_instructions()
+	end)
+	keymap("n", "<leader>ai", ":ChatGPT<cr>", opts)
 end

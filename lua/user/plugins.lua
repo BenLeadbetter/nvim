@@ -68,13 +68,14 @@ return packer.startup(function(use)
 	use("L3MON4D3/LuaSnip")
 	use("rafamadriz/friendly-snippets") -- todo roll some cpp snippets
 
-    use { "johmsalas/text-case.nvim",
-      config = function()
-        require('textcase').setup {
-            default_keymappings_enabled = false,
-        }
-      end
-    }
+	use({
+		"johmsalas/text-case.nvim",
+		config = function()
+			require("textcase").setup({
+				default_keymappings_enabled = false,
+			})
+		end,
+	})
 
 	-- lsp
 	use("neovim/nvim-lspconfig")
@@ -115,7 +116,7 @@ return packer.startup(function(use)
 	use("stevearc/oil.nvim")
 
 	-- noice
-    -- use nightly for this?
+	-- use nightly for this?
 	use({
 		"folke/noice.nvim",
 		requires = {
@@ -126,18 +127,18 @@ return packer.startup(function(use)
 
 	-- debugging
 	use("mfussenegger/nvim-dap")
-    use({ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } })
-    use({ 'Weissle/persistent-breakpoints.nvim' })
+	use({ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } })
+	use({ "Weissle/persistent-breakpoints.nvim" })
 
-    -- ai
-    use({
-        "jackMort/ChatGPT.nvim",
-        requires = {
-            "MunifTanjim/nui.nvim",
-            "nvim-lua/plenary.nvim",
-            "nvim-telescope/telescope.nvim"
-        }
-    })
+	-- ai
+	use({
+		"jackMort/ChatGPT.nvim",
+		requires = {
+			"MunifTanjim/nui.nvim",
+			"nvim-lua/plenary.nvim",
+			"nvim-telescope/telescope.nvim",
+		},
+	})
 
 	-- automatically set up your configuration after cloning packer.nvim
 	-- leave at the end of the list
