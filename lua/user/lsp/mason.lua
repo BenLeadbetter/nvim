@@ -1,17 +1,6 @@
 local servers = { "clangd", "lua_ls", "pyright", "rust_analyzer" }
 
-local settings = {
-	ui = {
-		border = "none",
-		icons = {
-			package_installed = "◍",
-			package_pending = "◍",
-			package_uninstalled = "◍",
-		},
-	},
-	log_level = vim.log.levels.INFO,
-	max_concurrent_installers = 4,
-}
+local settings = 
 
 require("mason").setup(settings)
 require("mason-lspconfig").setup({
