@@ -23,7 +23,7 @@ end
 
 return lazy.setup({
     spec = {
-    { import = "plugin" },
+    { import = "user.plugin" },
   },
   defaults = {
     lazy = true,
