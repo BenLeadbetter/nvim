@@ -23,7 +23,6 @@ end
 
 return lazy.setup({
     spec = {
-    { "bluz71/vim-nightfly-colors", as = "nightfly" },
     { import = "plugin" },
   },
   defaults = {
