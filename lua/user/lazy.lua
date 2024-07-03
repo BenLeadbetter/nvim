@@ -99,9 +99,6 @@ return lazy.setup({
 	-- -- git
 	-- use("lewis6991/gitsigns.nvim")
 	--
-	-- -- oil
-	-- use()
-	--
 	-- -- noice
 	-- -- use nightly for this?
 	-- use({
