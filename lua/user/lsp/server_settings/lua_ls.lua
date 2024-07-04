@@ -6,6 +6,7 @@ return {
 				library = {
 					[vim.fn.expand("$VIMRUNTIME/lua")] = true,
 					[vim.fn.stdpath("config") .. "/lua"] = true,
+					["${3rd}/luv/library"] = true,
 				},
 			},
 		},
