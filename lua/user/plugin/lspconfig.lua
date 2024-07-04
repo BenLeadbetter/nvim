@@ -114,6 +114,7 @@ return {
     dependencies = {
         "williamboman/mason.nvim",
         "williamboman/mason-lspconfig.nvim",
+        "nvimtools/none-ls.nvim",
     },
     config = function()
         initialise_server(server_map[vim.bo.filetype])
