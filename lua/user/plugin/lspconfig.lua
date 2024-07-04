@@ -40,10 +40,10 @@ local function reload_buffers_for_server(server)
     local buffers = vim.api.nvim_list_bufs()
     for _, buffer_number in ipairs(buffers) do
         if vim.api.nvim_buf_is_loaded(buffer_number) then
-            local buffer_filetype = vim.api.nvim_get_option_value('filetype', { buf = buffer_number })
+            local buffer_filetype = vim.api.nvim_get_option_value("filetype", { buf = buffer_number })
             if server_filetype == buffer_filetype then
                 vim.api.nvim_buf_call(buffer_number, function()
-                    vim.cmd('edit!')
+                    vim.cmd("edit!")
                 end)
             end
         end
@@ -87,7 +87,7 @@ local function initialise_server(server)
 end
 
 local function ensure_lsp_plugins_loaded()
-    vim.cmd('doautocmd User LoadLspPlugins')
+    vim.cmd("doautocmd User LoadLspPlugins")
 end
 
 vim.api.nvim_create_autocmd("FileType", {
@@ -108,6 +108,25 @@ vim.api.nvim_create_autocmd("FileType", {
     end,
 })
 
+-- formatting
+local range_format = function()
+    local start_row, _ = vim.api.nvim_buf_get_mark(0, "<")
+    local end_row, _ = vim.api.nvim_buf_get_mark(0, ">")
+    vim.lsp.buf.format({
+        range = {
+            ["start"] = { start_row, 0 },
+            ["end"] = { end_row, 0 },
+        },
+        async = true,
+        normal = true,
+    })
+end
+
+local function set_formatting_keymaps()
+        vim.keymap.set("v", "<leader>F", range_format)
+        vim.api.nvim_set_keymap("n", "<leader>F", ":lua vim.lsp.buf.format()<cr>", { noremap = true, silent = true })
+end
+
 return {
     "neovim/nvim-lspconfig",
     event = "User LoadLspPlugins",
@@ -118,5 +137,6 @@ return {
     },
     config = function()
         initialise_server(server_map[vim.bo.filetype])
-    end
+        set_formatting_keymaps()
+    end,
 }

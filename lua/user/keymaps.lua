@@ -28,22 +28,6 @@ keymap("n", "[B", ":bfirst<cr>", opts)
 keymap("n", "<leader>qab", ":bufdo bw<cr>", opts)
 keymap("n", "<leader>qa!", ":bufdo bw!<cr>", opts)
 
--- formatting
-local range_format = function()
-	local start_row, _ = vim.api.nvim_buf_get_mark(0, "<")
-	local end_row, _ = vim.api.nvim_buf_get_mark(0, ">")
-	vim.lsp.buf.format({
-		range = {
-			["start"] = { start_row, 0 },
-			["end"] = { end_row, 0 },
-		},
-		async = true,
-		normal = true,
-	})
-end
-vim.keymap.set("v", "<leader>F", range_format)
-keymap("n", "<leader>F", ":lua vim.lsp.buf.format()<cr>", opts)
-
 local function with_module(module_name, f)
 	return function()
 		local has_module, module = pcall(require, module_name)
