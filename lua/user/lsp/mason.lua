@@ -43,5 +43,6 @@ for _, server in pairs(servers) do
 --    end
 --    print_ops(opts, 0)
 
-	lspconfig[server].setup(opts)
+    
+	-- lspconfig[server].setup(opts)
 end

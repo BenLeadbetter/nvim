@@ -1,14 +1,6 @@
 return {
-    lua = {
-        "lua_ls",
-    },
-    rust = {
-        "rust_analyzer",
-    },
-    cpp = {
-        "clangd",
-    },
-    c = {
-        "clangd",
-    },
+    "lua_ls",
+    "rust_analyzer",
+    "clangd",
+    "clangd",
 }
