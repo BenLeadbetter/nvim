@@ -9,20 +9,20 @@ local server_map = {
 local setup_servers = {}
 
 local function get_server_ops(server)
-	opts = {
-		on_attach = require("user.lsp.handlers").on_attach,
-		capabilities = require("user.lsp.handlers").capabilities,
-	}
+    local opts = {
+        on_attach = require("user.lsp.handlers").on_attach,
+        capabilities = require("user.lsp.handlers").capabilities,
+    }
 
-	local has_global_opts, global_opts = pcall(require, "user.lsp.server_settings." .. server)
-	if has_global_opts then
-		opts = vim.tbl_deep_extend("force", global_opts, opts)
-	end
+    local has_global_opts, global_opts = pcall(require, "user.lsp.server_settings." .. server)
+    if has_global_opts then
+        opts = vim.tbl_deep_extend("force", global_opts, opts)
+    end
 
-	local has_local_opts, local_opts = pcall(require, "local.lsp.server_settings." .. server)
-	if has_local_opts then
-		opts = vim.tbl_deep_extend("force", local_opts, opts)
-	end
+    local has_local_opts, local_opts = pcall(require, "local.lsp.server_settings." .. server)
+    if has_local_opts then
+        opts = vim.tbl_deep_extend("force", local_opts, opts)
+    end
 
     return opts
 end
@@ -47,10 +47,10 @@ local function install_and_setup(server)
     assert(not server_package:is_installed())
     local install_handle = server_package:install()
     local buffer_number = vim.api.nvim_get_current_buf();
-    install_handle:on("state:change", function() 
+    install_handle:on("state:change", function()
         if install_handle:is_closed() then
-            vim.schedule(function() 
-                ensure_server_setup(server, buffer_number) 
+            vim.schedule(function()
+                ensure_server_setup(server, buffer_number)
             end)
         end
     end)
@@ -99,7 +99,7 @@ return {
         "williamboman/mason.nvim",
         "williamboman/mason-lspconfig.nvim",
     },
-    config = function() 
+    config = function()
         initialise_server(server_map[vim.bo.filetype])
     end
 }
