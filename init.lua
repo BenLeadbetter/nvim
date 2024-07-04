@@ -10,5 +10,4 @@ require("user.colorscheme")
 -- require("user.dap")
 -- require("user.spelling")
 -- require("user.tabnine")
--- require("user.autopairs")
 -- require("user.chatgpt") -- fixme
