@@ -5,6 +5,9 @@ return {
     event = { "VeryLazy" },
     lazy = vim.fn.argc(-1) == 0,
     cmd = { "TSUpdateSync", "TSUpdate", "TSInstall" },
+    dependencies = {
+        "HiPhish/rainbow-delimiters.nvim",
+    },
     config = function()
         require("nvim-treesitter.configs").setup({
             ensure_installed = {
