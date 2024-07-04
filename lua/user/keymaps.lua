@@ -56,18 +56,6 @@ local function with_persistent_breakpoints(f)
 end
 
 -- text-case
-vim.keymap.set("n", "<leader>tcu", with_tc(change_current_word("to_upper_case")))
-vim.keymap.set("n", "<leader>tcl", with_tc(change_current_word("to_lower_case")))
-vim.keymap.set("n", "<leader>tcs", with_tc(change_current_word("to_snake_case")))
-vim.keymap.set("n", "<leader>tcd", with_tc(change_current_word("to_dash_case")))
-vim.keymap.set("n", "<leader>tcn", with_tc(change_current_word("to_constant_case")))
-vim.keymap.set("n", "<leader>tcd", with_tc(change_current_word("to_dot_case")))
-vim.keymap.set("n", "<leader>tca", with_tc(change_current_word("to_phrase_case")))
-vim.keymap.set("n", "<leader>tcc", with_tc(change_current_word("to_camel_case")))
-vim.keymap.set("n", "<leader>tcp", with_tc(change_current_word("to_pascal_case")))
-vim.keymap.set("n", "<leader>tct", with_tc(change_current_word("to_title_case")))
-vim.keymap.set("n", "<leader>tcf", with_tc(change_current_word("to_path_case")))
-
 local dap_commands = {
 	continue = with_dap(function(dap)
 		dap.continue()

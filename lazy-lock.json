@@ -13,5 +13,6 @@
   "oil.nvim": { "branch": "master", "commit": "ace46a41a1ea56d544a3775adf30490f2abd9235" },
   "plenary.nvim": { "branch": "master", "commit": "50012918b2fc8357b87cff2a7f7f0446e47da174" },
   "telescope.nvim": { "branch": "master", "commit": "a0bbec21143c7bc5f8bb02e0005fa0b982edc026" },
+  "text-case.nvim": { "branch": "main", "commit": "c1ac8c498eef9f4486a1e27ceb5676469ae224dd" },
   "vim-nightfly-colors": { "branch": "master", "commit": "568a0cb8595f1e5363dc220f01ca6f18517ff80a" }
 }
