@@ -41,21 +41,10 @@ local function with_dap(f)
 	return with_module("dap", f)
 end
 
-local function with_tc(f)
-	return with_module("textcase", f)
-end
-
-local function change_current_word(to_case)
-	return function(tc)
-		tc.current_word(to_case)
-	end
-end
-
 local function with_persistent_breakpoints(f)
 	return with_module("persistent-breakpoints.api", f)
 end
 
--- text-case
 local dap_commands = {
 	continue = with_dap(function(dap)
 		dap.continue()
