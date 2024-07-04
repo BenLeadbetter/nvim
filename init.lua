@@ -13,7 +13,6 @@ require("user.colorscheme")
 -- require("user.treesitter")
 -- require("user.autopairs")
 -- require("user.comment")
--- require("user.gitsigns")
 -- require("user.notify")
 -- require("user.noice")
 -- require("user.chatgpt") -- fixme
