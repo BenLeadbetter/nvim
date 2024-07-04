@@ -3,6 +3,7 @@ local server_map = {
     rust = "rust_analyzer",
     c = "clangd",
     cpp = "clangd",
+    lua = "lua_ls",
 }
 
 local setup_servers = {}
