@@ -31,7 +31,6 @@ return lazy.setup({
 	checker = { enabled = true },
 })
 -- -- core functionality
--- use("nvim-lua/popup.nvim")
 --
 -- -- crates
 -- use({

@@ -1,7 +1,8 @@
 local function get_server_ops(server)
+    local handlers = require("user.lsp.handlers")
     local opts = {
-        on_attach = require("user.lsp.handlers").on_attach,
-        capabilities = require("user.lsp.handlers").capabilities,
+        on_attach = handlers.on_attach,
+        capabilities = handlers.capabilities,
     }
 
     local has_global_opts, global_opts = pcall(require, "user.lsp.server_settings." .. server)
@@ -43,6 +44,7 @@ return {
         "williamboman/mason.nvim",
         "williamboman/mason-lspconfig.nvim",
         "nvimtools/none-ls.nvim",
+        "hrsh7th/nvim-cmp",
     },
     config = function()
         local lspconfig = require("lspconfig")

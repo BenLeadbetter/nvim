@@ -1,6 +1,7 @@
 return {
     "nvim-telescope/telescope.nvim",
     version = "*",
+    cmd = "Telescope",
     keys = {
         { "<leader>f",  "<cmd>Telescope find_files no_ignore=true theme=dropdown<cr>", desc = "File files" },
         { "<leader>rg", "<cmd>Telescope live_grep<cr>",                                desc = "Grep all files" },
