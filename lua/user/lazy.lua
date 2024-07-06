@@ -15,7 +15,7 @@ vim.opt.rtp:prepend(lazypath)
 
 local status_ok, lazy = pcall(require, "lazy")
 if not status_ok then
-	vim.notify("Couldn't locate package manager", vim.log.levels.WARN)
+    require("user.log").warn("Couldn't locate package manager")
 	return
 end
 
