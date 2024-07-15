@@ -1,11 +1,7 @@
 if vim.g.vscode then
-    return
+	return
 end
 
-require("user.options")
-require("user.keymaps")
-require("user.lazy")
+-- bootstrap lazy.nvim, LazyVim and your plugins
+require("config.lazy")
 require("user.colorscheme")
--- require("user.dap")
--- require("user.spelling")
--- require("user.chatgpt") -- fixme
