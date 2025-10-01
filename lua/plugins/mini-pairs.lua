@@ -1,5 +1,5 @@
 return {
-	"echasnovski/mini.pairs",
+	"nvim-mini/mini.pairs",
 	opts = function(_, opts)
 		local midi_pairs = require("mini.pairs")
 
