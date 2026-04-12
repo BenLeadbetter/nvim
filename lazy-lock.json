@@ -53,6 +53,7 @@
   "twilight.nvim": { "branch": "main", "commit": "664e752f4a219801265cc3fc18782b457b58c1e1" },
   "typst-preview.nvim": { "branch": "master", "commit": "87db18b8d19c8b0eed399f52e4c527ce5afe4817" },
   "venv-selector.nvim": { "branch": "main", "commit": "bcb2f58533c59b01565285eba49693f00bc460f5" },
+  "vim-fireplace": { "branch": "master", "commit": "5e66509599de92550762cf2681338fc4cd1e71cf" },
   "vim-nightfly-colors": { "branch": "master", "commit": "250ee0eb4975e59a277f50cc03c980eef27fb483" },
   "which-key.nvim": { "branch": "main", "commit": "3aab2147e74890957785941f0c1ad87d0a44c15a" }
 }
