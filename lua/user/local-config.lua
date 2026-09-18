@@ -18,6 +18,13 @@
 --       doc_dir = "...",            -- default: $QT_DOC_DIR, else <qt_root>/doc
 --       no_cmake_calls = true,      -- set false to let qmlls trigger CMake rebuilds
 --     },
+--     debug = {
+--       program = "...",            -- binary to launch, relative to build_dir
+--       args = { "..." },
+--       env = { KEY = "value" },
+--       cwd = "...",                -- default: build_dir
+--       source_maps = { ... },      -- build-machine path -> path in this checkout
+--     },
 --   }
 
 local MODULE = "bl_local_config"
@@ -27,6 +34,7 @@ local RELATIVE_PATH = ".nvim/" .. MODULE .. ".lua"
 local SCHEMA = {
 	build_dir = "string",
 	qml = "table",
+	debug = "table",
 }
 
 local M = {}
@@ -128,6 +136,9 @@ vim.api.nvim_create_autocmd("BufWritePost", {
 	callback = function()
 		cache = nil
 		package.loaded[MODULE] = nil
+		-- Debug settings are re-read on every session start, but an LSP `cmd` is built
+		-- once when the plugin's opts are resolved and cannot be swapped under a running
+		-- client.
 		vim.notify(
 			"Reloaded " .. RELATIVE_PATH .. " -- run :LspRestart to re-apply LSP settings",
 			vim.log.levels.INFO
